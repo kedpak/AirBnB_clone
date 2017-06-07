@@ -20,6 +20,7 @@ The CMD module provides support for line-oriented command intepreters. Cmd is a 
 
 #### Packages
 Packages organize a Python module by utilizing "dotted module names". A Python file is called a module. When a module is inside of a folder, the folder is called a package. Packages are crucial for orgainzing files in a large project. The following example shows a submodule called 'rap' being imported from a package called 'music' using dotted notation.
+
 `import music.rap`
 
 #### UUID Module
@@ -42,7 +43,8 @@ The *args and *kwargs allows for a variable number of arguments to be passed thr
 
 ## Excution Process
 Interactive mode
-` $ ./console.py
+
+`$ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
@@ -52,10 +54,11 @@ EOF  help  quit
 (hbnb) 
 (hbnb) 
 (hbnb) quit
-$ `
+$`
 
 Non-interactive mode
-` $ echo "help" | ./console.py
+
+`$ echo "help" | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
@@ -73,7 +76,7 @@ Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 (hbnb) 
-$ `
+$`
 
 ## Authors
 * Kevin Pak

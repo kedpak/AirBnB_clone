@@ -1,32 +1,24 @@
 #!/usr/bin/python3
-import uuid, json
+import uuid
 from datetime import datetime
-from models import storage
+import json
 
 class BaseModel:
 
-    def __init__(self, *args, **kwargs):
-        "init BaseModel class"
-        if (kwargs.get('id') is not None):
-            self.id = kwargs.get('id')
-            self.created_at = datetime.now()
-        else:
-            self.id = uuid.uuid4()
-            self.created_at = datetime.now()
-            storage.new(self)
+    def __init__(self):
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now().isoformat()
+        self.updated_at = datetime.now().isoformat()
 
     def save(self):
-        "save updates updated_at with current datetime"
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.now().isoformat()
 
     def to_json(self):
-        "returns dict of all keys and values"
-        dict = {}
-        x = self.__dict__
-        dict = x
-        dict.update({'__class__': self.__class__.__name__})
-        return dict
+        self.created_at = str(datetime.now().isoformat(sep="T"))
+        self.updated_at = str(datetime.now().isoformat(sep="T"))
+        self.__dict__["__class__"] = self.__class__.__name__
+        return(self.__dict__)
 
     def __str__(self):
-        "Sting method returns type, uuid and self dict"
-        return('[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.__dict__))
+        "returns [<class name>] (<self.id>) <self.__dict__>"
+        return('[{}] ({}) {}'.format(self.__class__.__name__,self.id, self.__dict__))

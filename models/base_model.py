@@ -15,16 +15,15 @@ class BaseModel:
         '''constructor:
         sets attributes for id and created_at
         '''
-        if len(args) == 0 and len(kwargs) == 0:
+        if kwargs:
+            self.__dict__ = kwargs
+            if 'created_at' in kwargs:
+                self.created_at = datetime.strptime(kwargs.get("created_at"), '%Y-%m-%dT%H:%M:%S.%f')
+            if 'updated_at' in kwargs:
+                self.updated_at = datetime.strptime(kwargs.get("updated_at"), '%Y-%m-%dT%H:%M:%S.%f')
+        else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
-        else:
-            if 'id' in kwargs:
-                self.id = kwargs.get("id")
-            if 'created_at' in kwargs:
-                self.created_at = datetime.now()
-            if 'updated_at' in kwargs:
-                self.updated_at = datetime.now()
 
     def save(self):
         ''' public method:
@@ -36,9 +35,9 @@ class BaseModel:
         ''' public method:
         returns dictionary containing all key/values
         '''
-        self.created_at = str(datetime.now().isoformat())
+        self.created_at = str(self.created_at.isoformat())
         if hasattr(self, "updated_at") == True:
-            self.updated_at = str(datetime.now().isoformat())
+            self.updated_at = str(self.updated_at.isoformat())
         self.__dict__["__class__"] = self.__class__.__name__
         return (self.__dict__)
 

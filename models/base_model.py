@@ -5,7 +5,7 @@ for other classes
 '''
 from datetime import datetime
 from uuid import uuid4
-
+from models import storage
 
 class BaseModel:
     '''class:  defines all common attributes/methods for other classes
@@ -31,12 +31,14 @@ class BaseModel:
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
+            storage.new(self)
 
     def save(self):
         ''' public method:
         updates current datetime
         '''
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_json(self):
         ''' public method:

@@ -7,10 +7,12 @@ from datetime import datetime
 from uuid import uuid4
 from models import storage
 
+
 class BaseModel:
     '''class:  defines all common attributes/methods for other classes
     '''
     def __init__(self, *args, **kwargs):
+
         '''constructor:
         sets attributes for id and created_at
         '''

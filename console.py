@@ -142,17 +142,15 @@ class HBNBCommand(cmd.Cmd):
         for obj in all_objs:
             if all_objs[obj].__class__.__name__ == obj_class:
                 found_class = 1
+                if all_objs[obj].id == obj_id:
+                    found_id = 1
         if found_class == 0:
             print("** class doesn't exist **")
             return
-
-        for obj in all_objs:
-            if all_objs[obj].__class__.__name__ == obj_class:
-                if all_objs[obj].id == obj_id:
-                    found_id = 1
         if found_id == 0:
             print("** no instance found **")
             return
+
         all_objs[obj_id].__dict__[attr] = attr_value
         storage.save()
 

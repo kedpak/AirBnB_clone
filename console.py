@@ -82,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
             del(all_obj[arg_list[0] + "." + self.model_id])
         elif arg_list[0] not in self.classes:
             print("** class doesn't exist **")
-        elif arg_list[1] != self.model_id:
+        elif arg_list[0] in self.classes and arg_list[1] != self.model_id:
             print("** instance id missing **")
 
     def do_all(self, args):
@@ -91,10 +91,11 @@ class HBNBCommand(cmd.Cmd):
         all_obj = storage.all()
         arg_list = list(args.split())
 
-        if len(arg_list) == 0:
+        if len(args) == 0:
             for obj in all_obj:
                 print(all_obj[obj])
-                return
+            return
+
         if arg_list[0] in self.classes:
             for obj in all_obj:
                 print(all_obj[obj])

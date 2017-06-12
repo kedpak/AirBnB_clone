@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 import cmd
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 '''module: console
 This module contains the entry point of command line iterpreter
@@ -16,6 +22,16 @@ class HBNBCommand(cmd.Cmd):
         cmd.Cmd.__init__(self)
         self.prompt = "(hbnb) "
 
+    classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Amenity",
+        "Place",
+        "Review"
+    }
+
     def do_create(self, args):
         """ creates a new instance of class BaseModel
         """
@@ -24,8 +40,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
         arg_list = list(args.split())
-        if arg_list[0] == "BaseModel":
-            b_model = BaseModel()
+        if arg_list[0] in self.classes:
+            b_model = eval(arg_list[0])()
             b_model.save()
             self.model_id = b_model.id
             print('{0}'.format(b_model.id))
@@ -42,15 +58,15 @@ class HBNBCommand(cmd.Cmd):
         all_obj = storage.all()
         arg_list = list(args.split())
 
-        if arg_list[0] == "BaseModel" and arg_list[1]:
-            if ("BaseModel." + self.model_id) not in all_obj:
+        if arg_list[0] in self.classes and arg_list[1]:
+            if (arg_list[0] + "." + self.model_id) not in all_obj:
                 print ("** no instance found **")
                 return
             if arg_list[1] == self.model_id:
-                print(all_obj["BaseModel." + self.model_id])
+                print(all_obj[arg_list[0] + "." + self.model_id])
             else:
                 print("** instance id missing **")
-        elif arg_list[0] != "BaseModel":
+        elif arg_list[0] not in self.classes:
             print("** class doesn't exist **")
 
     def do_destroy(self, args):
@@ -62,9 +78,9 @@ class HBNBCommand(cmd.Cmd):
         all_obj = storage.all()
         arg_list = list(args.split())
 
-        if arg_list[0] == "BaseModel" and arg_list[1] == self.model_id:
-            del(all_obj["BaseModel." + self.model_id])
-        elif arg_list[0] != "BaseModel":
+        if arg_list[0] in self.classes and arg_list[1] == self.model_id:
+            del(all_obj[arg_list[0] + "." + self.model_id])
+        elif arg_list[0] not in self.classes:
             print("** class doesn't exist **")
         elif arg_list[1] != self.model_id:
             print("** instance id missing **")
@@ -79,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
             for obj in all_obj:
                 print(all_obj[obj])
                 return
-        if arg_list[0] == "BaseModel":
+        if arg_list[0] in self.classes:
             for obj in all_obj:
                 print(all_obj[obj])
         else:
@@ -105,12 +121,12 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
-        if arg_list[0] == "BaseModel":
+        if arg_list[0] in self.classes:
             if arg_list[1] != self.model_id:
                 print("** no instance found **")
                 return
             else:
-                all_obj["BaseModel." + self.model_id].__dict__[
+                all_obj[arg_list[0] + "." + self.model_id].__dict__[
                     arg_list[2]] = arg_list[3].replace('\"', '')
                 storage.save()
         else:

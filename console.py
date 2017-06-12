@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         elif arg_list[0] != "BaseModel":
             print("** class doesn't exist **")
-    
+
     def do_destroy(self, args):
         """ deletes instance based on class name and id
         """
@@ -69,7 +69,6 @@ class HBNBCommand(cmd.Cmd):
         elif arg_list[1] != self.model_id:
             print("** instance id missing **")
 
-
     def do_all(self, args):
         """ prints all string representation of instances created
         """
@@ -83,16 +82,45 @@ class HBNBCommand(cmd.Cmd):
         if arg_list[0] == "BaseModel":
             for obj in all_obj:
                 print(all_obj[obj])
+        else:
+            print("** class doesn't exist **")
 
-        
+    def do_update(self, args):
+        """updates instance based on class name and id by
+        adding attribute"""
 
+        all_obj = storage.all()
+        arg_list = list(args.split())
+
+        if len(arg_list) == 0:
+            print("** class name missing **")
+            return
+        if len(arg_list) == 1:
+            print("** instance id missing **")
+            return
+        if len(arg_list) == 2:
+            print("** attribute name missing **")
+            return
+        if len(arg_list) == 3:
+            print("** value missing **")
+            return
+
+        if arg_list[0] == "BaseModel":
+            if arg_list[1] != self.model_id:
+                print("** no instance found **")
+                return
+            else:
+                all_obj["BaseModel." + self.model_id].__dict__[
+                    arg_list[2]] = arg_list[3].replace('\"', '')
+                storage.save()
+        else:
+            print("** class doesn't exist **")
 
     def emptyline(self):
         '''if empty line entered pass
         '''
         pass
 
-    
     def do_EOF(self, line):
         '''EOF command to exit the program
         '''

@@ -111,9 +111,6 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         ''' prints all string representation of instances created
         '''
-        if self.model_id == "":
-            print ("** instance id missing **")
-            return
         all_obj = storage.all()
         arg_list = list(args.split())
         results = []
@@ -144,13 +141,15 @@ class HBNBCommand(cmd.Cmd):
         if len(arg_list) == 0:
             print("** class name missing **")
             return
-        if len(arg_list) == 1:
+        if len(arg_list) == 1 and arg_list[0] in self.classes:
             print("** instance id missing **")
             return
-        if len(arg_list) == 2:
+        if len(arg_list) == 2 and arg_list[
+                0] in self.classes and arg_list[1] == self.model_id:
             print("** attribute name missing **")
             return
-        if len(arg_list) == 3:
+        if len(arg_list) == 3 and arg_list[0] in self.classes and arg_list[
+                1] == self.model_id and arg_list[2]:
             print("** value missing **")
             return
         if len(arg_list) > 4:
@@ -160,7 +159,12 @@ class HBNBCommand(cmd.Cmd):
             if arg_list[1] != self.model_id:
                 print("** no instance found **")
                 return
-            else:
+            if arg_list[1] == self.model_id and hasattr(
+                    eval(arg_list[0]), arg_list[2]) is False:
+                print("** attribute name missing **")
+                return
+            elif arg_list[1] == self.model_id and hasattr(
+                    eval(arg_list[0]), arg_list[2]) is True:
                 all_obj[arg_list[0] + "." + self.model_id].__dict__[
                     arg_list[2]] = arg_list[3].replace('\"', '')
                 storage.save()

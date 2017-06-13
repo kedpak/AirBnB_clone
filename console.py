@@ -90,15 +90,18 @@ class HBNBCommand(cmd.Cmd):
         """
         all_obj = storage.all()
         arg_list = list(args.split())
+        results = []
 
         if len(args) == 0:
             for obj in all_obj:
-                print(all_obj[obj])
+                results += [str(all_obj[obj])]
+            print(results)
             return
 
         if arg_list[0] in self.classes:
             for obj in all_obj:
-                print(all_obj[obj])
+                results += [str(all_obj[obj])]
+            print(results)
         else:
             print("** class doesn't exist **")
 

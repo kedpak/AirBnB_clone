@@ -142,6 +142,8 @@ class HBNBCommand(cmd.Cmd):
         if len(arg_list) == 3:
             print("** value missing **")
             return
+        if len(arg_list) > 4:
+            arg_list = arg_list[:4]
 
         if arg_list[0] in self.classes:
             if arg_list[1] != self.model_id:

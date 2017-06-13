@@ -66,17 +66,15 @@ class HBNBCommand(cmd.Cmd):
         ''' print string representation of instance based on
         class name and ID
         '''
-
         if len(args) == 0:
             print("** class name missing **")
             return
+        
         all_obj = storage.all()
         arg_list = list(args.split())
 
         key_name = arg_list[0] + "." + self.model_id
-        if len(arg_list) == 1:
-            print("** instance id missing **")
-            return
+        
         if arg_list[0] in self.classes:
             if arg_list[1]:
                 if arg_list[1] == self.model_id and key_name in all_obj:
@@ -93,6 +91,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, args):
         ''' deletes instance based on class name and id
         '''
+
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -109,6 +108,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         ''' prints all string representation of instances created
         '''
+
         all_obj = storage.all()
         arg_list = list(args.split())
         results = []
@@ -130,7 +130,6 @@ class HBNBCommand(cmd.Cmd):
         '''updates instance based on class name and id by
         adding attribute
         '''
-
         all_obj = storage.all()
         arg_list = list(args.split())
 

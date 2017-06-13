@@ -118,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             for obj in all_obj:
                 results += [str(all_obj[obj])]
-            print('[]')
+            print(results)
             return
 
         if arg_list[0] in self.classes:

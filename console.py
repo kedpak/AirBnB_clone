@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import cmd
+import sys
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -16,11 +17,7 @@ Includes: help(builtin), EOF, quit, and custom prompt('hbnb')
 
 class HBNBCommand(cmd.Cmd):
 
-    def __init__(self):
-        '''constructor method
-        '''
-        cmd.Cmd.__init__(self)
-        self.prompt = "(hbnb) "
+    prompt = "(hbnb) "
 
     classes = {
         "BaseModel",
@@ -69,12 +66,12 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return
-        
+
         all_obj = storage.all()
         arg_list = list(args.split())
 
         key_name = arg_list[0] + "." + self.model_id
-        
+
         if arg_list[0] in self.classes:
             if arg_list[1]:
                 if arg_list[1] == self.model_id and key_name in all_obj:

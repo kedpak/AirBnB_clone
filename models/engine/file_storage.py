@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-#from models.base_model import BaseModel
 import json
 import os
 
+
 class FileStorage:
-    
+
     def __init__(self):
         '''constructor method
         '''
@@ -28,8 +28,7 @@ class FileStorage:
         for key in self.__objects.keys():
             j_dict[key] = self.__objects[key].to_json()
         with open(self.__file_path, mode='w') as f:
-            f.write(json.dumps(j_dict, sort_keys = True, indent = 4))
-
+            f.write(json.dumps(j_dict, sort_keys=True, indent=4))
 
     def reload(self):
         '''deserialze the JSON file to __objects
@@ -43,7 +42,7 @@ class FileStorage:
         from models.review import Review
 
         if os.path.isfile(self.__file_path):
-            with open(self.__file_path, mode = 'r') as f:
+            with open(self.__file_path, mode='r') as f:
                 j_load = json.load(f)
                 for key in j_load.keys():
                     self.__objects[key] = BaseModel(**j_load[key])

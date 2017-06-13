@@ -57,14 +57,20 @@ class HBNBCommand(cmd.Cmd):
         all_obj = storage.all()
         arg_list = list(args.split())
 
+        key_name = arg_list[0] + "." + self.model_id
         if len(arg_list) == 1:
             print("** instance id missing **")
             return
         if arg_list[0] in self.classes:
-            if arg_list[1] == self.model_id:
-                print(all_obj[arg_list[0] + "." + self.model_id])
+            if arg_list[1]:
+                if arg_list[1] == self.model_id and key_name in all_obj:
+                    print(all_obj[arg_list[0] + "." + self.model_id])
+                elif arg_list[1] == self.model_id and key_name not in all_obj:
+                    print("** no instance found **")
+                    return
             else:
-                print("** no instance found **")
+                    print("** no instance found **")
+                    return
         elif arg_list[0] not in self.classes:
             print("** class doesn't exist **")
 
@@ -153,4 +159,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-    file.seek(0)

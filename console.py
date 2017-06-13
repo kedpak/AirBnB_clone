@@ -33,8 +33,8 @@ class HBNBCommand(cmd.Cmd):
     }
 
     def do_create(self, args):
-        """ creates a new instance of class BaseModel
-        """
+        ''' creates a new instance of class BaseModel
+        '''
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -48,8 +48,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, args):
-        """ print string representation of instance based on
-        class name and ID """
+        ''' print string representation of instance based on
+        class name and ID 
+        '''
 
         if len(args) == 0:
             print("** class name missing **")
@@ -75,8 +76,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, args):
-        """ deletes instance based on class name and id
-        """
+        ''' deletes instance based on class name and id
+        '''
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -91,8 +92,8 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
 
     def do_all(self, args):
-        """ prints all string representation of instances created
-        """
+        ''' prints all string representation of instances created
+        '''
         all_obj = storage.all()
         arg_list = list(args.split())
         results = []
@@ -111,8 +112,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, args):
-        """updates instance based on class name and id by
-        adding attribute"""
+        '''updates instance based on class name and id by
+        adding attribute
+        '''
 
         all_obj = storage.all()
         arg_list = list(args.split())

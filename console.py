@@ -32,6 +32,21 @@ class HBNBCommand(cmd.Cmd):
         "Review"
     }
 
+    def emptyline(self):
+        '''if empty line entered pass
+        '''
+        pass
+
+    def do_EOF(self, line):
+        '''EOF command to exit the program
+        '''
+        return (True)
+
+    def do_quit(self, line):
+        '''Quit command to exit the program
+        '''
+        return (True)
+
     def do_create(self, args):
         ''' creates a new instance of class BaseModel
         '''
@@ -49,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         ''' print string representation of instance based on
-        class name and ID 
+        class name and ID
         '''
 
         if len(args) == 0:
@@ -142,21 +157,6 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
         else:
             print("** class doesn't exist **")
-
-    def emptyline(self):
-        '''if empty line entered pass
-        '''
-        pass
-
-    def do_EOF(self, line):
-        '''EOF command to exit the program
-        '''
-        return (True)
-
-    def do_quit(self, line):
-        '''Quit command to exit the program
-        '''
-        return (True)
 
 
 if __name__ == '__main__':

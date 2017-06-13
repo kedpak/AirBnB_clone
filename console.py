@@ -159,7 +159,12 @@ class HBNBCommand(cmd.Cmd):
             if arg_list[1] != self.model_id:
                 print("** no instance found **")
                 return
-            else:
+            if arg_list[1] == self.model_id and hasattr(
+                    eval(arg_list[0]), arg_list[2]) is False:
+                print("** attribute name missing **")
+                return
+            elif arg_list[1] == self.model_id and hasattr(
+                    eval(arg_list[0]), arg_list[2]) is True:
                 all_obj[arg_list[0] + "." + self.model_id].__dict__[
                     arg_list[2]] = arg_list[3].replace('\"', '')
                 storage.save()

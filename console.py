@@ -111,9 +111,6 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         ''' prints all string representation of instances created
         '''
-        if self.model_id == "":
-            print ("** instance id missing **")
-            return
         all_obj = storage.all()
         arg_list = list(args.split())
         results = []
@@ -121,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             for obj in all_obj:
                 results += [str(all_obj[obj])]
-            print(results)
+            print('[]')
             return
 
         if arg_list[0] in self.classes:

@@ -1,5 +1,5 @@
 #!/user/bin/python3
-"""module: amenity_test"""
+"""module: test_Review"""
 import unittest
 from models.test_Review import Review
 
@@ -21,12 +21,12 @@ Class test_Review(unittest.TestCase):
         self.assertTrue(hasattr(self.Review, "user_id"))
 
     def test_update(self):
-        self.state.save()
-        self.assertTrue(hasattr(self.amenity, "updated_at"))
+        self.review.save()
+        self.assertTrue(hasattr(self.review, "updated_at"))
 
     def test_Save(self):
-        self.amenity.save()
-        self.assertTrue(hasattr(self.amenity, "updated_at"))
+        self.review.save()
+        self.assertTrue(hasattr(self.review, "updated_at"))
 
 if __name__ == "__main__":
     unittest.main

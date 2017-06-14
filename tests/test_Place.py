@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 import unittest
 from models.place import Place
-"""module: amenity_test"""
+"""module: test_Place"""
 
-class Test_Amenity(unittest.TestCase):
+class Test_Place(unittest.TestCase):
 
     def setUp(self):
         self.place = Place()
 
     def test_instance(self):
-        self.assertIsInstance(self.amenity, Place)
+        self.assertIsInstance(self.place, Place)
 
     def test_attributes(self):
         self.assertTrue(hasattr(self.place, "created_at"))
@@ -32,7 +32,7 @@ class Test_Amenity(unittest.TestCase):
 
     def test_Save(self):
         self.amenity.save()
-        self.assertTrue(hasattr(self.amenity, "updated_at"))
+        self.assertTrue(hasattr(self.place, "updated_at"))
 
 if __name__ == '__main__':
     unittest.main()

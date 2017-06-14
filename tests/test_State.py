@@ -1,5 +1,5 @@
 #!/user/bin/python3
-"""module: amenity_test"""
+"""module: test_State"""
 import unittest
 from models.test_State import State
 
@@ -7,7 +7,7 @@ from models.test_State import State
 Class test_State(unittest.TestCase):
 
     def setUp(self):
-        self.amenity = Amenity()
+        self.state = State()
 
     def test_instance(self):
         self.assertIsInstance(self.state, State)
@@ -21,11 +21,11 @@ Class test_State(unittest.TestCase):
 
     def test_update(self):
         self.state.save()
-        self.assertTrue(hasattr(self.amenity, "updated_at"))
+        self.assertTrue(hasattr(self.state, "updated_at"))
 
     def test_Save(self):
-        self.amenity.save()
-        self.assertTrue(hasattr(self.amenity, "updated_at"))
+        self.state.save()
+        self.assertTrue(hasattr(self.state, "updated_at"))
 
 if __name__ == "__main__":
     unittest.main

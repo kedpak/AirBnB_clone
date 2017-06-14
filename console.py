@@ -55,6 +55,7 @@ class HBNBCommand(cmd.Cmd):
             b_model.save()
             self.model_id = b_model.id
             print('{0}'.format(b_model.id))
+            b_model.save()
         else:
             print("** class doesn't exist **")
 
@@ -167,7 +168,8 @@ class HBNBCommand(cmd.Cmd):
                 return
             elif instance_id in all_obj.keys() and hasattr(
                     eval(arg_list[0]), arg_list[2]) is True:
-                all_obj[arg_list[0] + "." + self.model_id].__dict__[
+                print(instance_id)
+                all_obj[instance_id].__dict__[
                     arg_list[2]] = arg_list[3].replace('\"', '')
                 storage.save()
         else:

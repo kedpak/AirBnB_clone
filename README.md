@@ -41,7 +41,13 @@ The *args and *kwargs allows for a variable number of arguments to be passed thr
 
 * **kwargs: kwargs allows a keyworded variable to be passed into the function argument. 
 
-## Excution Process
+## How to Start and Usage
+
+The hbnb command interpretr can be summoned by inputing './console.py' through the terminal command line. When opened, a new prompt should appear:
+
+`(hbnb) `
+
+### Excution Process
 Interactive mode
 
 ```sh
@@ -55,10 +61,12 @@ EOF  help  quit
 (hbnb) 
 (hbnb) 
 (hbnb) quit
-$`
+$
+```
 
 Non-interactive mode
 
+```sh
 $ echo "help" | ./console.py
 (hbnb)
 
@@ -79,9 +87,51 @@ EOF  help  quit
 (hbnb) 
 $
 ```
+### Using HBNB command interpreter
 
-## How to Start and Usage
+#### Commands:
 
+##### create:
+Creates a new instance of the a class
+
+```sh
+(hbnb) create User
+33f5aacc-6544-460c-8e29-076e3f0bc829
+```
+##### show:
+Prints the string representation of an instance based on class name and ID
+
+```sh
+(hbnb) show User 33f5aacc-6544-460c-8e29-076e3f0bc829
+[User] (33f5aacc-6544-460c-8e29-076e3f0bc829) {'id': '33f5aacc-6544-460c-8e29-076e3f0bc829', 'created_at': datetime.datetime(2017, 6, 14, 8, 44, 26, 240325), '__class__': 'User'}
+```
+
+##### destroy:
+Deletes an instance based on class name and ID
+
+```sh
+(hbnb) destroy User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d 
+(hbnb) show User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d 
+** no instance found **
+(hbnb) 
+```
+
+##### update:
+Updates instance based on class name and ID by adding/updating attributes
+
+```sh
+(hbnb) update User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d email "hello@tmail.com
+(hbnb) show User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d
+[User] (5dd7d1d3-37fe-4991-b565-c00fe0cb934d) {'email': 'hello@tmail.com', 'created_at': datetime.datetime(2017, 6, 14, 8, 52, 8, 834912), '__class__': 'User', 'id': '5dd7d1d3-37fe-4991-b565-c00fe0cb934d'}
+```
+
+##### all:
+Prints all string representation of all instances based or not on the class name
+
+```sh
+(hbnb) all
+["[BaseModel] (5493dce9-b37b-4af1-87e1-c59dc22cd04e) {'created_at': datetime.datetime(2017, 6, 14, 9, 2, 33, 463347), '__class__': 'BaseModel', 'id': '5493dce9-b37b-4af1-87e1-c59dc22cd04e'}", "[Review] (df9fcb76-6ab9-46fd-96a7-12f267b65902) {'created_at': datetime.datetime(2017, 6, 14, 9, 2, 37, 460415), '__class__': 'Review', 'id': 'df9fcb76-6ab9-46fd-96a7-12f267b65902'}", "[State] (82e614c3-d188-445a-9319-020a4beff165) {'created_at': datetime.datetime(2017, 6, 14, 9, 2, 39, 827700), '__class__': 'State', 'WestCoast': 'CaLiFoR-Nai-yay', 'id': '82e614c3-d188-445a-9319-020a4beff165'}"]
+```
 
 ## Authors
 * Kevin Pak

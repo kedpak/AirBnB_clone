@@ -53,9 +53,7 @@ class HBNBCommand(cmd.Cmd):
         if arg_list[0] in self.classes:
             b_model = eval(arg_list[0])()
             b_model.save()
-            self.model_id = b_model.id
             print('{0}'.format(b_model.id))
-            b_model.save()
         else:
             print("** class doesn't exist **")
 
@@ -74,9 +72,7 @@ class HBNBCommand(cmd.Cmd):
 
         if arg_list[0] in self.classes:
             if len(arg_list) > 1:
-                print("test1")
                 if instance_id in all_obj.keys():
-                    print("test2")
                     print(all_obj[instance_id])
                 else:
                     print("** no instance found **")
@@ -164,11 +160,6 @@ class HBNBCommand(cmd.Cmd):
             if instance_id not in all_obj.keys():
                 print("** no instance found **")
                 return
-#            if instance_id in all_obj.keys() and hasattr(
-#                    eval(arg_list[0]), arg_list[2]) is False:
-#                print("** attribute name missing **")
-#                return
-# and hasattr(eval(arg_list[0]), arg_list[2]) is True:
             if instance_id in all_obj.keys():
                 all_obj[instance_id].__dict__[
                     arg_list[2]] = arg_list[3].replace('\"', '')

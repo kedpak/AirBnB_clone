@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 
+
 class Test_BaseModel(unittest.TestCase):
 
     def setUp(self):
@@ -18,10 +19,7 @@ class Test_BaseModel(unittest.TestCase):
         self.assertNotEqual(pre_save, post_save)
 
     def test__str__(self):
-        correct_format = "[{}] ({}) {}".format(self.test.__class__.__name__,
-                                str(self.test.id),
-                                self.test.__dict__)
-        self.assertEqual(hasattr(correct_format, self.test)
-
-if __name__ == '__main__':
-    unittest.main()
+        correct_format = "[{}] ({}) {}".format(
+            self.test.__class__.__name__, str(
+                self.test.id), self.test.__dict__) self.assertEqual(
+                    hasattr(correct_format, self.test)

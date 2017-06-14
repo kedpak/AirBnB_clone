@@ -91,39 +91,47 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, args):
         ''' deletes instance based on class name and id
         '''
-        if self.model_id == "":
-            print ("** instance id missing **")
-            return
 
         if len(args) == 0:
             print("** class name missing **")
             return
         all_obj = storage.all()
         arg_list = list(args.split())
+        instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
 
-        if arg_list[0] in self.classes and arg_list[1] == self.model_id:
-            del(all_obj[arg_list[0] + "." + self.model_id])
+        if arg_list[0] in self.classes:
+            storage.reload()
+            all_obj = storage.all()
+            if instance_id in all_obj.keys():
+                del(all_obj[instance_id])
+                storage.save()
+            else:
+                print("** instance id missing **")
         elif arg_list[0] not in self.classes:
             print("** class doesn't exist **")
-        elif arg_list[0] in self.classes and arg_list[1] != self.model_id:
-            print("** instance id missing **")
 
     def do_all(self, args):
         ''' prints all string representation of instances created
         '''
-        all_obj = storage.all()
+
         arg_list = list(args.split())
         results = []
 
         if len(args) == 0:
+            storage.reload()
+            all_obj = storage.all()
             for obj in all_obj:
                 results += [str(all_obj[obj])]
+                storage.save()
             print(results)
             return
 
         if arg_list[0] in self.classes:
+            storage.reload()
+            all_obj = storage.all()
             for obj in all_obj:
                 results += [str(all_obj[obj])]
+                storage.save()
             print(results)
         else:
             print("** class doesn't exist **")

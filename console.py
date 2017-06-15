@@ -156,11 +156,11 @@ class HBNBCommand(cmd.Cmd):
             arg_list = arg_list[:4]
 
         if arg_list[0] in self.classes:
-            storage.reload()
             if instance_id not in all_obj.keys():
                 print("** no instance found **")
                 return
             if instance_id in all_obj.keys():
+                storage.reload()
                 all_obj[instance_id].__dict__[
                     arg_list[2]] = arg_list[3].replace('\"', '')
                 storage.save()

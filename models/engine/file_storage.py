@@ -41,8 +41,20 @@ class FileStorage:
         from models.place import Place
         from models.review import Review
 
+        classes = {
+                "BaseModel",
+                "User",
+                "State",
+                "City",
+                "Amenity",
+                "Place",
+                "Review"
+        }
+
         if os.path.isfile(self.__file_path):
             with open(self.__file_path, mode='r') as f:
                 j_load = json.load(f)
                 for key in j_load.keys():
-                    self.__objects[key] = BaseModel(**j_load[key])
+                    key_name = key.split('.')[0]
+                    if key_name in classes:
+                        self.__objects[key] = eval(key_name)(**j_load[key])

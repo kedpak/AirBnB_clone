@@ -18,7 +18,6 @@ Includes: help(builtin), EOF, quit, and custom prompt('hbnb')
 class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
-    model_id = ""
     classes = {
         "BaseModel",
         "User",
@@ -54,7 +53,6 @@ class HBNBCommand(cmd.Cmd):
         if arg_list[0] in self.classes:
             b_model = eval(arg_list[0])()
             b_model.save()
-            self.model_id = b_model.id
             print('{0}'.format(b_model.id))
         else:
             print("** class doesn't exist **")
@@ -63,9 +61,6 @@ class HBNBCommand(cmd.Cmd):
         ''' print string representation of instance based on
         class name and ID
         '''
-        if self.model_id == "":
-            print ("** instance id missing **")
-            return
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -73,13 +68,13 @@ class HBNBCommand(cmd.Cmd):
         all_obj = storage.all()
         arg_list = list(args.split())
 
-        key_name = arg_list[0] + "." + self.model_id
+        instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
 
         if arg_list[0] in self.classes:
             if len(arg_list) > 1:
-                if arg_list[1] == self.model_id and key_name in all_obj:
-                    print(all_obj[arg_list[0] + "." + self.model_id])
-                elif arg_list[1] == self.model_id and key_name not in all_obj:
+                if instance_id in all_obj.keys():
+                    print(all_obj[instance_id])
+                else:
                     print("** no instance found **")
                     return
             else:
@@ -91,39 +86,47 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, args):
         ''' deletes instance based on class name and id
         '''
-        if self.model_id == "":
-            print ("** instance id missing **")
-            return
 
         if len(args) == 0:
             print("** class name missing **")
             return
         all_obj = storage.all()
         arg_list = list(args.split())
+        instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
 
-        if arg_list[0] in self.classes and arg_list[1] == self.model_id:
-            del(all_obj[arg_list[0] + "." + self.model_id])
+        if arg_list[0] in self.classes:
+            storage.reload()
+            all_obj = storage.all()
+            if instance_id in all_obj.keys():
+                del(all_obj[instance_id])
+                storage.save()
+            else:
+                print("** instance id missing **")
         elif arg_list[0] not in self.classes:
             print("** class doesn't exist **")
-        elif arg_list[0] in self.classes and arg_list[1] != self.model_id:
-            print("** instance id missing **")
 
     def do_all(self, args):
         ''' prints all string representation of instances created
         '''
-        all_obj = storage.all()
+
         arg_list = list(args.split())
         results = []
 
         if len(args) == 0:
+            storage.reload()
+            all_obj = storage.all()
             for obj in all_obj:
                 results += [str(all_obj[obj])]
+                storage.save()
             print(results)
             return
 
         if arg_list[0] in self.classes:
+            storage.reload()
+            all_obj = storage.all()
             for obj in all_obj:
                 results += [str(all_obj[obj])]
+                storage.save()
             print(results)
         else:
             print("** class doesn't exist **")
@@ -132,40 +135,33 @@ class HBNBCommand(cmd.Cmd):
         '''updates instance based on class name and id by
         adding attribute
         '''
-        if self.model_id == "":
-            print ("** instance id missing **")
-            return
         all_obj = storage.all()
         arg_list = list(args.split())
 
+        instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
         if len(arg_list) == 0:
             print("** class name missing **")
             return
-        if len(arg_list) == 1 and arg_list[0] in self.classes:
+        elif len(arg_list) == 1 and arg_list[0] in self.classes:
             print("** instance id missing **")
             return
-        if len(arg_list) == 2 and arg_list[
-                0] in self.classes and arg_list[1] == self.model_id:
+        elif len(arg_list) == 2 and arg_list[
+                0] in self.classes and instance_id in all_obj.keys():
             print("** attribute name missing **")
             return
-        if len(arg_list) == 3 and arg_list[0] in self.classes and arg_list[
-                1] == self.model_id and arg_list[2]:
+        elif len(arg_list) == 3:
             print("** value missing **")
             return
         if len(arg_list) > 4:
             arg_list = arg_list[:4]
 
         if arg_list[0] in self.classes:
-            if arg_list[1] != self.model_id:
+            if instance_id not in all_obj.keys():
                 print("** no instance found **")
                 return
-            if arg_list[1] == self.model_id and hasattr(
-                    eval(arg_list[0]), arg_list[2]) is False:
-                print("** attribute name missing **")
-                return
-            elif arg_list[1] == self.model_id and hasattr(
-                    eval(arg_list[0]), arg_list[2]) is True:
-                all_obj[arg_list[0] + "." + self.model_id].__dict__[
+            if instance_id in all_obj.keys():
+                storage.reload()
+                all_obj[instance_id].__dict__[
                     arg_list[2]] = arg_list[3].replace('\"', '')
                 storage.save()
         else:

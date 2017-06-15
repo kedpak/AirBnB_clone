@@ -14,6 +14,44 @@ The AirBnB clone project is a multi-threaded project that covers the fundamental
 * Update attributes of an object
 * Destroy an Object
 
+The HBNB comman interpreter takes command which creates new instances. By default, theach instance will represent one of the following:
+
+##### Classes:
+
+* State
+* City
+* Amenity
+* Place
+* Review
+
+All classes are inhereted from the BaseModel class which holds all fundamental attributes for the classes stated above. When a new instance is created, the BaseModel class is run first. BaseModel checks if an instance exists, if it does then the datetime is updated, if it does not exist, a new creation date is made and an ID is is set to a variable to be given to the newly created instance. 
+
+When a new instance is created, the attributes of the instance is stored inside of a python data structure in dictionary form. This dictionary is then serialized into JSON string representation and stored into a JSON file. The attributes are organized by being placed inside a key/value pair where the value is a dictionary as well. The keyname is represented by the class name, period, and object ID.
+
+```sh
+{
+    "BaseModel.5493dce9-b37b-4af1-87e1-c59dc22cd04e": {
+        "__class__": "BaseModel",
+        "created_at": "2017-06-14T09:02:33.463347",
+        "id": "5493dce9-b37b-4af1-87e1-c59dc22cd04e"
+    },
+    "Review.df9fcb76-6ab9-46fd-96a7-12f267b65902": {
+        "__class__": "Review",
+        "created_at": "2017-06-14T09:02:37.460415",
+        "id": "df9fcb76-6ab9-46fd-96a7-12f267b65902"
+    },
+    "State.82e614c3-d188-445a-9319-020a4beff165": {
+        "WestCoast": "CaLiFoR-Nai-yay",
+        "__class__": "State",
+        "created_at": "2017-06-14T09:02:39.827700",
+        "id": "82e614c3-d188-445a-9319-020a4beff165"
+    }
+}
+
+This data structure is used for manipulating the data, such as updating attributes, deleting the objects, printing the objects, and more. 
+	
+```
+
 ### Key Concepts
 #### CMD Module
 The CMD module provides support for line-oriented command intepreters. Cmd is a class that provides a framework for a command line interface. It is often utilized with testing, administrative tasks, and debugging. 
@@ -41,10 +79,17 @@ The *args and *kwargs allows for a variable number of arguments to be passed thr
 
 * **kwargs: kwargs allows a keyworded variable to be passed into the function argument. 
 
-## Excution Process
+## How to Start and Usage
+
+The hbnb command interpretr can be summoned by inputing './console.py' through the terminal command line. When opened, a new prompt should appear:
+
+`(hbnb) `
+
+### Excution Process
 Interactive mode
 
-`$ ./console.py
+```sh
+$ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
@@ -54,11 +99,13 @@ EOF  help  quit
 (hbnb) 
 (hbnb) 
 (hbnb) quit
-$`
+$
+```
 
 Non-interactive mode
 
-`$ echo "help" | ./console.py
+```sh
+$ echo "help" | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
@@ -76,7 +123,53 @@ Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 (hbnb) 
-$`
+$
+```
+### Using HBNB command interpreter
+
+#### Commands:
+
+##### create:
+Creates a new instance of the a class
+
+```sh
+(hbnb) create User
+33f5aacc-6544-460c-8e29-076e3f0bc829
+```
+##### show:
+Prints the string representation of an instance based on class name and ID
+
+```sh
+(hbnb) show User 33f5aacc-6544-460c-8e29-076e3f0bc829
+[User] (33f5aacc-6544-460c-8e29-076e3f0bc829) {'id': '33f5aacc-6544-460c-8e29-076e3f0bc829', 'created_at': datetime.datetime(2017, 6, 14, 8, 44, 26, 240325), '__class__': 'User'}
+```
+
+##### destroy:
+Deletes an instance based on class name and ID
+
+```sh
+(hbnb) destroy User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d 
+(hbnb) show User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d 
+** no instance found **
+(hbnb) 
+```
+
+##### update:
+Updates instance based on class name and ID by adding/updating attributes
+
+```sh
+(hbnb) update User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d email "hello@tmail.com
+(hbnb) show User 5dd7d1d3-37fe-4991-b565-c00fe0cb934d
+[User] (5dd7d1d3-37fe-4991-b565-c00fe0cb934d) {'email': 'hello@tmail.com', 'created_at': datetime.datetime(2017, 6, 14, 8, 52, 8, 834912), '__class__': 'User', 'id': '5dd7d1d3-37fe-4991-b565-c00fe0cb934d'}
+```
+
+##### all:
+Prints all string representation of all instances based or not on the class name
+
+```sh
+(hbnb) all
+["[BaseModel] (5493dce9-b37b-4af1-87e1-c59dc22cd04e) {'created_at': datetime.datetime(2017, 6, 14, 9, 2, 33, 463347), '__class__': 'BaseModel', 'id': '5493dce9-b37b-4af1-87e1-c59dc22cd04e'}", "[Review] (df9fcb76-6ab9-46fd-96a7-12f267b65902) {'created_at': datetime.datetime(2017, 6, 14, 9, 2, 37, 460415), '__class__': 'Review', 'id': 'df9fcb76-6ab9-46fd-96a7-12f267b65902'}", "[State] (82e614c3-d188-445a-9319-020a4beff165) {'created_at': datetime.datetime(2017, 6, 14, 9, 2, 39, 827700), '__class__': 'State', 'WestCoast': 'CaLiFoR-Nai-yay', 'id': '82e614c3-d188-445a-9319-020a4beff165'}"]
+```
 
 ## Authors
 * Kevin Pak

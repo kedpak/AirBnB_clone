@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
                     del(all_obj[instance_id])
                     storage.save()
                 else:
-                    print("** instance id missing **")
+                    print("** no instance found **")
             elif arg_list[0] not in self.classes:
                 print("** class doesn't exist **")
         except:

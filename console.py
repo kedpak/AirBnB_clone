@@ -110,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
             elif arg_list[0] not in self.classes:
                 print("** class doesn't exist **")
         except:
-            print("** instance imissing **")
+            print("** instance id missing **")
             return
 
     def do_all(self, args):

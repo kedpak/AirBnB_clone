@@ -102,11 +102,6 @@ class HBNBCommand(cmd.Cmd):
             if arg_list[0] in self.classes:
                 storage.reload()
                 all_obj = storage.all()
-                for keys in all_obj:
-                    if arg_list[1] == keys.id and arg_list[
-                            0] != keys.__class__:
-                        print("** instance id missing **")
-                        return
                 if instance_id in all_obj.keys():
                     del(all_obj[instance_id])
                     storage.save()
@@ -115,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
             elif arg_list[0] not in self.classes:
                 print("** class doesn't exist **")
         except:
-            print("** instance id missing **")
+            print("** instance imissing **")
             return
 
     def do_all(self, args):

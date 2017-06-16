@@ -68,20 +68,23 @@ class HBNBCommand(cmd.Cmd):
         all_obj = storage.all()
         arg_list = list(args.split())
 
-        instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
-
-        if arg_list[0] in self.classes:
-            if len(arg_list) > 1:
-                if instance_id in all_obj.keys():
-                    print(all_obj[instance_id])
+        try:
+            instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
+            if arg_list[0] in self.classes:
+                if len(arg_list) > 1:
+                    if instance_id in all_obj.keys():
+                        print(all_obj[instance_id])
+                    else:
+                        print("** no instance found **")
+                        return
                 else:
-                    print("** no instance found **")
-                    return
-            else:
                     print("** instance id missing **")
                     return
-        elif arg_list[0] not in self.classes:
-            print("** class doesn't exist **")
+            elif arg_list[0] not in self.classes:
+                print("** class doesn't exist **")
+        except:
+            print("** instance id missing **")
+            return
 
     def do_destroy(self, args):
         ''' deletes instance based on class name and id
@@ -92,18 +95,22 @@ class HBNBCommand(cmd.Cmd):
             return
         all_obj = storage.all()
         arg_list = list(args.split())
-        instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
 
-        if arg_list[0] in self.classes:
-            storage.reload()
-            all_obj = storage.all()
-            if instance_id in all_obj.keys():
-                del(all_obj[instance_id])
-                storage.save()
-            else:
-                print("** instance id missing **")
-        elif arg_list[0] not in self.classes:
-            print("** class doesn't exist **")
+        try:
+            instance_id = arg_list[0] + '.' + arg_list[1]
+            if arg_list[0] in self.classes:
+                storage.reload()
+                all_obj = storage.all()
+                if instance_id in all_obj.keys():
+                    del(all_obj[instance_id])
+                    storage.save()
+                else:
+                    print("** no instance found **")
+            elif arg_list[0] not in self.classes:
+                print("** class doesn't exist **")
+        except:
+            print("** instance id missing **")
+            return
 
     def do_all(self, args):
         ''' prints all string representation of instances created
@@ -138,7 +145,6 @@ class HBNBCommand(cmd.Cmd):
         all_obj = storage.all()
         arg_list = list(args.split())
 
-        instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
         if len(arg_list) == 0:
             print("** class name missing **")
             return
@@ -155,17 +161,22 @@ class HBNBCommand(cmd.Cmd):
         if len(arg_list) > 4:
             arg_list = arg_list[:4]
 
-        if arg_list[0] in self.classes:
-            if instance_id not in all_obj.keys():
-                print("** no instance found **")
-                return
-            if instance_id in all_obj.keys():
-                storage.reload()
-                all_obj[instance_id].__dict__[
-                    arg_list[2]] = arg_list[3].replace('\"', '')
-                storage.save()
-        else:
-            print("** class doesn't exist **")
+        try:
+            instance_id = "{0}.{1}".format(arg_list[0], arg_list[1])
+            if arg_list[0] in self.classes:
+                if instance_id not in all_obj.keys():
+                    print("** no instance found **")
+                    return
+                    if instance_id in all_obj.keys():
+                        storage.reload()
+                        all_obj[instance_id].__dict__[
+                            arg_list[2]] = arg_list[3].replace('\"', '')
+                        storage.save()
+                    else:
+                        print("** class doesn't exist **")
+        except:
+            print ("** instance id missing ** ")
+            return
 
 
 if __name__ == '__main__':

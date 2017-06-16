@@ -83,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
             elif arg_list[0] not in self.classes:
                 print("** class doesn't exist **")
         except:
-            print("** no instance found **")
+            print("** instance id missing **")
             return
 
     def do_destroy(self, args):
@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
             elif arg_list[0] not in self.classes:
                 print("** class doesn't exist **")
         except:
-            print("** no instance found **")
+            print("** instance id missing **")
             return
 
     def do_all(self, args):
@@ -175,7 +175,7 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         print("** class doesn't exist **")
         except:
-            print ("** no instance found ** ")
+            print ("** instance id missing **")
             return
 
 

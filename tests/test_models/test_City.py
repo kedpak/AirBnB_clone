@@ -9,7 +9,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.city import City
 
-class test_City(unittest.TestCase):
+class testCity(unittest.TestCase):
 
     def setUp(self):
         self.city = City()

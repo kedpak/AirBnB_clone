@@ -8,7 +8,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
 
-class test_FileStorage(unittest.TestCase):
+class testFileStorage(unittest.TestCase):
 
     def setUp(self):
         self.filestorage = FileStorage()

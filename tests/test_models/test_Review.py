@@ -9,7 +9,7 @@ from models.base_model import BaseModel
 from models.review import Review
 from models.engine.file_storage import FileStorage
 
-class test_Review(unittest.TestCase):
+class testReview(unittest.TestCase):
 
     def setUp(self):
         self.review = Review()

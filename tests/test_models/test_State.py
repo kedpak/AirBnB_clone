@@ -9,7 +9,7 @@ from models.engine.file_storage import FileStorage
 from models.state import State
 
 
-class test_State(unittest.TestCase):
+class testState(unittest.TestCase):
 
     def setUp(self):
         self.state = State()

@@ -9,7 +9,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 """module: test_Place"""
 
-class Test_Place(unittest.TestCase):
+class TestPlace(unittest.TestCase):
 
     def setUp(self):
         self.place = Place()

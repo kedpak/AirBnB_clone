@@ -9,7 +9,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 """module: amenity_test"""
 
-class Test_Amenity(unittest.TestCase):
+class TestAmenity(unittest.TestCase):
 
     def setUp(self):
         self.amenity = Amenity()

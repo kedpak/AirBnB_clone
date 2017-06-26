@@ -23,6 +23,12 @@ class testFileStorage(unittest.TestCase):
             except:
                 pass
 
+    def hasattr(self):
+        self.assertTrue(hasattr(self.filestorage, "all"))
+        self.assertTrue(hasattr(self.filestorage, "new"))
+        self.assertTrue(hasattr(self.filestorage, "save"))
+        self.assertTrue(hasattr(self.filestorage, "reload"))
+        
     def test_file(self):
         self.basemodel.save()
         self.assertTrue(os.path.isfile("./file.json"))

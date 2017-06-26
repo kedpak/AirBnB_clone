@@ -27,10 +27,10 @@ class TestAmenity(unittest.TestCase):
 
     def test_attributes(self):
         self.assertTrue(hasattr(self.amenity, "created_at"))
-        self.assertTrue(hasattr(self.amenity, "updated_in"))
         self.assertTrue(hasattr(self.amenity, "id"))
         self.assertTrue(hasattr(self.amenity, "name"))
-        self.assertEqual(hasattr(self.__class__.__name__, "Amenity"))
+        self.assertFalse(hasattr(self.amenity, "updated_at"))
+        self.assertEqual(self.amenity.__class__.__name__, "Amenity")
 
     def test_update(self):
         self.amenity.save()

@@ -28,13 +28,5 @@ class testFileStorage(unittest.TestCase):
         self.assertTrue(os.path.isfile("./file.json"))
 
 
-    def test_all(self):
-        num = 0
-        basemodel_ID = self.basemodel.id
-        objects_list = storage.all()
-        if basemodel_ID in objects_list:
-            num = 1
-        self.assertTrue(num == 1)
-
 if __name__ == '__main__':
     unittest.main

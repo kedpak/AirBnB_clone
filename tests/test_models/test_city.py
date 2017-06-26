@@ -27,10 +27,10 @@ class testCity(unittest.TestCase):
 
     def test_attributes(self):
         self.assertTrue(hasattr(self.city, "created_at"))
-        self.assertTrue(hasattr(self.city, "updated_in"))
         self.assertTrue(hasattr(self.city, "id"))
         self.assertTrue(hasattr(self.city, "name"))
-        self.assertEqual(hasattr(self.__class__.__name__, "City"))
+        self.assertFalse(hasattr(self.city, "updated_at"))
+        self.assertEqual(self.city.__class__.__name__, "City")
 
     def test_update(self):
         self.city.save()

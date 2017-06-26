@@ -27,9 +27,9 @@ class TestPlace(unittest.TestCase):
 
     def test_attributes(self):
         self.assertTrue(hasattr(self.place, "created_at"))
-        self.assertTrue(hasattr(self.place, "updated_in"))
+        self.assertFalse(hasattr(self.place, "updated_at"))
         self.assertTrue(hasattr(self.place, "name"))
-        self.assertEqual(hasattr(self.__class__.__name__, "Amenity"))
+        self.assertEqual(self.place.__class__.__name__, "Place")
         self.assertTrue(hasattr(self.place, "city_id"))
         self.assertTrue(hasattr(self.place, "user_id"))
         self.assertTrue(hasattr(self.place, "description"))

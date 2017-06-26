@@ -27,12 +27,11 @@ class testReview(unittest.TestCase):
 
     def test_attributes(self):
         self.assertTrue(hasattr(self.review, "created_at"))
-        self.assertTrue(hasattr(self.review, "updated_in"))
+        self.assertFalse(hasattr(self.review, "updated_at"))
         self.assertTrue(hasattr(self.review, "place_id"))
-        self.assertTrue(hasattr(self.review, "name"))
-        self.assertEqual(hasattr(self.__class__.__name__, "Review"))
+        self.assertEqual(self.review.__class__.__name__, "Review")
         self.assertTrue(hasattr(self.review, "text"))
-        self.assertTrue(hasattr(self.reviewls, "user_id"))
+        self.assertTrue(hasattr(self.review, "user_id"))
 
     def test_update(self):
         self.review.save()

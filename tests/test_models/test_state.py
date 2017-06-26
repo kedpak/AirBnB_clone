@@ -26,10 +26,10 @@ class testState(unittest.TestCase):
 
     def test_attributes(self):
         self.assertTrue(hasattr(self.state, "created_at"))
-        self.assertTrue(hasattr(self.state, "updated_in"))
         self.assertTrue(hasattr(self.state, "id"))
         self.assertTrue(hasattr(self.state, "name"))
-        self.assertEqual(hasattr(self.__class__.__name__, "State"))
+        self.assertFalse(hasattr(self.state, "updated_at"))
+        self.assertEqual(self.state.__class__.__name__, "State")
 
     def test_update(self):
         self.state.save()

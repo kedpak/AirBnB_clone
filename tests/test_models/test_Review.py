@@ -14,6 +14,13 @@ class test_Review(unittest.TestCase):
     def setUp(self):
         self.review = Review()
 
+    def tearDown(self):
+        if os.path.exists("file.json"):
+            try:
+                os.remove("file.json")
+            except:
+                pass
+
     def test_instance(self):
         self.assertIsInstance(self.review, Review)
 

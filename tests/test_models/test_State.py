@@ -14,6 +14,13 @@ class test_State(unittest.TestCase):
     def setUp(self):
         self.state = State()
 
+    def tearDown(self):
+        if os.path.exists("file.json"):
+            try:
+                os.remove("file.json")
+            except:
+                pass
+
     def test_instance(self):
         self.assertIsInstance(self.state, State)
 

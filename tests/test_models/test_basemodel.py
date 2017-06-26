@@ -12,6 +12,13 @@ class Test_BaseModel(unittest.TestCase):
     def setUp(self):
         self.test = BaseModel()
 
+    def tearDown(self):
+        if os.path.exists("file.json"):
+            try:
+                os.remove("file.json")
+            except:
+                pass
+
     def test_id(self):
         new_dict = self.test.__dict__
         self.assertIsNotNone(new_dict.get("id"))

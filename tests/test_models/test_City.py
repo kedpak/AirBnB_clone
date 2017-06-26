@@ -14,6 +14,13 @@ class test_City(unittest.TestCase):
     def setUp(self):
         self.city = City()
 
+    def tearDown(self):
+        if os.path.exists("file.json"):
+            try:
+                os.remove("file.json")
+            except:
+                pass
+
     def test_instance(self):
         self.assertIsInstance(self.city, City)
 

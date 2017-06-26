@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """module: test_console"""
 from unittest.mock import create_autospec
 from console import HBNBCommand
@@ -19,6 +21,11 @@ class TestConsole(unittest.TestCase):
 
     def test_quit(self):
         """ testing quit"""
+        cmd = self.create()
+        self.assertRaises(SystemExit, quit)
+
+    def test_exit(self):
+        """test exit"""
         cmd = self.create()
         self.assertRaises(SystemExit, quit)
 

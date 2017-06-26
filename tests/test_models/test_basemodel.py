@@ -25,6 +25,13 @@ class TestBaseModel(unittest.TestCase):
         new_dict = self.test.__dict__
         self.assertIsNotNone(new_dict.get("id"))
 
+    def test_attr(self):
+        self.assertTrue(hasattr(self.test, "created_at"))
+        self.assertTrue(hasattr(self.test, "id"))
+        self.assertFalse(hasattr(self.test, "updated_at"))
+        self.assertFalse(hasattr(self.test, "new_attr"))
+        self.assertEqual(self.test.__class__.__name__, "BaseModel")
+
     def test_save(self):
         new_dict = self.test.__dict__
         pre_save = new_dict.get("updated_at")
@@ -37,7 +44,7 @@ class TestBaseModel(unittest.TestCase):
                           (self.test.__class__.__name__,
                            self.test.id,
                            self.test.__dict__))
-        self.assertEqual(str(correct_format), str(self.test))
+        self.assertEqual(print(correct_format), print(self.test))
 
 if __name__ == '__main__':
     unittest.main()

@@ -3,6 +3,7 @@ import unittest
 from models.user import User
 """module : test_user """
 
+
 class TestUser(unittest.TestCase):
     """ class: TestUser """
     def setUp(self):

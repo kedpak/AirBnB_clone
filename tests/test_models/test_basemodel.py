@@ -8,43 +8,37 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 """ base model test """
 
+
 class TestBaseModel(unittest.TestCase):
     """ class test """
 
     def setUp(self):
-        self.test = BaseModel()
-
-    def tearDown(self):
-        if os.path.exists("file.json"):
-            try:
-                os.remove("file.json")
-            except:
-                pass
+        self.basemodel = BaseModel()
 
     def test_id(self):
-        new_dict = self.test.__dict__
+        new_dict = self.basemodel.__dict__
         self.assertIsNotNone(new_dict.get("id"))
 
     def test_attr(self):
-        self.assertTrue(hasattr(self.test, "created_at"))
-        self.assertTrue(hasattr(self.test, "id"))
-        self.assertFalse(hasattr(self.test, "updated_at"))
-        self.assertFalse(hasattr(self.test, "new_attr"))
-        self.assertEqual(self.test.__class__.__name__, "BaseModel")
+        self.assertTrue(hasattr(self.basemodel, "created_at"))
+        self.assertTrue(hasattr(self.basemodel, "id"))
+        self.assertFalse(hasattr(self.basemodel, "updated_at"))
+        self.assertFalse(hasattr(self.basemodel, "new_attr"))
+        self.assertEqual(self.basemodel.__class__.__name__, "BaseModel")
 
     def test_save(self):
-        new_dict = self.test.__dict__
+        new_dict = self.basemodel.__dict__
         pre_save = new_dict.get("updated_at")
-        self.test.save()
+        self.basemodel.save()
         post_save = new_dict.get("updated_at")
         self.assertNotEqual(pre_save, post_save)
 
     def test__str__(self):
         correct_format = ("[{}] ({}) {}".format
-                          (self.test.__class__.__name__,
-                           self.test.id,
-                           self.test.__dict__))
-        self.assertEqual(print(correct_format), print(self.test))
+                          (self.basemodel.__class__.__name__,
+                           self.basemodel.id,
+                           self.basemodel.__dict__))
+        self.assertEqual(print(correct_format), print(self.basemodel))
 
 if __name__ == '__main__':
     unittest.main()

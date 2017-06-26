@@ -28,7 +28,7 @@ class testFileStorage(unittest.TestCase):
         self.assertTrue(hasattr(self.filestorage, "new"))
         self.assertTrue(hasattr(self.filestorage, "save"))
         self.assertTrue(hasattr(self.filestorage, "reload"))
-        
+
     def test_file(self):
         self.basemodel.save()
         self.assertTrue(os.path.isfile("./file.json"))

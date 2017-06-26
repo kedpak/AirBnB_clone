@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 """module: test_console"""
+import unittest
 from unittest.mock import create_autospec
 from console import HBNBCommand
-import unittest
 import sys
 
 
@@ -29,5 +29,5 @@ class TestConsole(unittest.TestCase):
         cmd = self.create()
         self.assertRaises(SystemExit, quit)
 
-    if __name__ == '__main__':
-        unittest.main
+if __name__ == '__main__':
+    unittest.main

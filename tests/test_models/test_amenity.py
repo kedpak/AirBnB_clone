@@ -40,7 +40,7 @@ class TestAmenity(unittest.TestCase):
         string = "[{}] ({}) {}".format(
             self.amenity.__class__.__name__, str(
                 self.amenity.id), self.amenity.__dict__)
-        self.assertEqual(string, self.amenity)
+        self.assertEqual(print(string), print(self.amenity))
 
 if __name__ == '__main__':
     unittest.main()

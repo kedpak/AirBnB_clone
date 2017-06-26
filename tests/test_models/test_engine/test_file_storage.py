@@ -27,6 +27,7 @@ class testFileStorage(unittest.TestCase):
         self.basemodel.save()
         self.assertTrue(os.path.isfile("./file.json"))
 
+
     def test_all(self):
         num = 0
         basemodel_ID = self.basemodel.id

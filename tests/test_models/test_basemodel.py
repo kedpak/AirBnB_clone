@@ -6,9 +6,10 @@ import models
 from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-
+""" base model test """
 
 class TestBaseModel(unittest.TestCase):
+    """ class test """
 
     def setUp(self):
         self.test = BaseModel()

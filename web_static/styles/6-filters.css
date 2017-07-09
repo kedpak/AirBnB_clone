@@ -28,15 +28,19 @@ button:hover {
     height: 100%;
     width: 25%;
     border-right: solid 1px #DDDDDD;
-    margin-top: -16px;
-    text-align: center;
+    margin: auto 0px -70px 0px;
+    text-indent: 50px;
+    display: flex;
+    position: relative;
 }
+
 .amenities{
     height: 100%;
     width: 25%;
-    margin-left: 250px;
-    margin-top: -87px;
-    text-align: center;
+    margin: auto auto -50px 250px;
+    text-indent: 50px;
+    display: flex;
+    position: relative;
 }
 
 .popover {
@@ -44,7 +48,12 @@ button:hover {
     border: #DDDDDD 1px solid;
     border-radius: 4px;
     display: none;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 12px;
     list-style-type: none;
+    min-height: 50vh;
+    width: 100%;
 }
 
 .locations:hover .popover{
@@ -62,13 +71,19 @@ li {
 
 h3 {
     font-weight: 600;
-    padding-top: 10px;
+    margin-top: 5px;
 }
 
-h4 {
+.locations h4 {
     font-weight: 400;
     font-size: 14px;
-    margin-top: -13px;
-    margin-bottom: 21px;
+    margin: 40px -100px 20px -97px; 
+    text-align: left;
+}
 
+.amenities h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 40px -100px 20px -127px; 
+    text-align: left;
 }

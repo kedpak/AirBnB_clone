@@ -9,7 +9,7 @@ header {
     
 }
 
-#logo {
+.logos {
     content:url('../images/logo.png');
     margin-left: 20px;
     align-items: center;

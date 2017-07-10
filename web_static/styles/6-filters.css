@@ -48,20 +48,24 @@ button:hover {
     border: #DDDDDD 1px solid;
     border-radius: 4px;
     display: none;
-    position: relative;
+    position: absolute;
     z-index: 10;
     padding-bottom: 12px;
     list-style-type: none;
-    min-height: 50vh;
-    width: 100%;
+    min-height: 60vh;
 }
 
-.locations:hover .popover{
+.locations:hover .popover {
     display: block;
+    width: 84%;
+    right: -1px;
+    top: 56px;
 }
 
 .amenities:hover .popover {
     display: block;
+    width: 84%;
+    top: 56px;
 }
 
 li {
@@ -71,7 +75,7 @@ li {
 
 h3 {
     font-weight: 600;
-    margin-top: 5px;
+    height: 8px;
 }
 
 .locations h4 {

@@ -1,62 +1,3 @@
-button {
-    font-size: 18px;
-    color: white;
-    background-color: #FF5A5F;
-    height: 48px;
-    width: 20%;
-    border-radius: 4px;
-    float: right;
-    margin-right: 30px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-.locations {
-    height: 100%;
-    width: 25%;
-    border-right: solid 1px #DDDDDD;
-    margin: auto 0px -70px 0px;
-    text-indent: 50px;
-    display: flex;
-    position: relative;
-}
-
-.amenities{
-    height: 100%;
-    width: 25%;
-    margin: auto auto -50px 250px;
-    text-indent: 50px;
-    display: flex;
-    position: relative;
-}
-
-.popover {
-    background-color: #FAFAFA;
-    border: #DDDDDD 1px solid;
-    border-radius: 4px;
-    display: none;
-    position: relative;
-    z-index: 10;
-    padding-bottom: 12px;
-    list-style-type: none;
-    min-height: 50vh;
-    width: 100%;
-
-}
-
-.locations:hover .popover{
-    display: block;
-}
-
-.amenities:hover .popover {
-    display: block;
-}
-
 .places {
     width: 100%;
     display: flex;
@@ -155,4 +96,8 @@ article {
     border: #FF5A5F 1px solid;
     border-radius: 4px;
     font-size: 30px;
+}
+
+.place_name {
+    margin: 0;
 }

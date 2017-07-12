@@ -5,8 +5,8 @@ footer {
     border-top: solid 1px #CCCCCC;
     text-align: center;
     line-height: 60px;
-    bottom: 0;
+    bottom: 0px;
     display: block;
     overflow: hidden;
-    margin-top: 180vh;
+    margin-top: 310vh;
 }

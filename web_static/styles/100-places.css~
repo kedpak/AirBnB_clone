@@ -27,7 +27,7 @@
     width: 60px;
     min-width: 60px;
     height: 60px;
-    font-size: 30px; 
+    font-size: 30px;
     vertical-align: center;
     top: -47px;
     right: -320px;
@@ -39,7 +39,7 @@
 .information {
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
-    height: 80px;
+    min-height: 90px;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
@@ -89,13 +89,14 @@
 .user {
     font-size: 15px;
     text-align: left;
-    padding-top: 6px;
+    padding-top: 38px;
 }
 
 article {
     width: 390px;
     padding: 20px;
     margin: 20px;
+    height: 100vh;
     border: #FF5A5F 1px solid;
     border-radius: 4px;
     font-size: 30px;
@@ -103,4 +104,28 @@ article {
 
 .place_name {
     margin: 0;
+}
+
+.places .amenities {
+    right: 260px;
+    margin-top: 40px;
+    
+}
+.amenities h2 {
+    font-size: 16px;
+    height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+    min-width: 410px;
+    text-align: left;
+}
+
+.amenities ul {
+    font-size: 20px;
+    text-align: center;
+    min-width: 200px;
+    margin-top: 85px;
+}
+
+.amenities .tv {
+    content:url(../images/icon_tv.png);
 }

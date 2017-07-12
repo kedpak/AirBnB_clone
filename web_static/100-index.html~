@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+  <title>AirBnb Clone</title>
+  <link rel="stylesheet" href="styles/4-common.css">
+  <link rel="stylesheet" href="styles/3-footer.css">
+  <link rel="stylesheet" href="styles/3-header.css">
+  <link rel="stylesheet" href="styles/6-filters.css">
+  <link rel="stylesheet" href="styles/100-places.css">
+
+  <link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+</head>
+
+
+<body>
+
+  <header>
+    <div class="logos"></div>
+  </header>
+
+  <div class="container">
+    <section class="filters">
+      <button type="button">Search</button>
+      <div class="locations">
+	<h3>States</h3>
+	  <h4>Holberton</h4>
+	      <ul class="popover">
+		<li>
+		  <h2>Toprock:</h2>
+		  <ul>
+		    <li>Indian Step</li>
+		    <li>Salsa Step</li>
+		  </ul>
+		</li>
+		<li>
+		  <h2>Footwork:</h2>
+		  <ul>
+		    <li>Six Step</li>
+		    <li>CC</li>
+		    <li>Shuffle</li>
+		  </ul>
+		</li>
+		<li>
+		  <h2>Power:</h2>
+		  <ul>
+		    <li>Windmill</li>
+		    <li>Flare</li>
+		    <li>Headspin</li>
+		  </ul>
+		</li>
+		<li>
+		  <h2>Freeze:</h2>
+		  <ul>
+		    <li>Hollowback</li>
+		    <li>Airchair</li>
+		  </ul>
+		</li>
+	      </ul>
+</div>
+
+
+<div class="amenities">
+  <h3>Amenities</h3>
+    <h4>Moons</h4>
+      <ul class="popover">
+	<li>
+	    <h2>Jupiter:</h2>
+	      <ul>
+		<li>Io</li>
+		<li>Europa</li>
+		<li>Titan</li>
+	      </ul>
+	</li>
+	<li>
+	  <h2>Mars:</h2>
+	  <ul>
+	    <li>Coocoocachoo</li>
+	    <li>Moon</li>
+	  </ul>
+	</li>
+	<li>
+	  <h2>Neptune:</h2>
+	  <ul>
+	    <li>meh</li>
+	    <li>pikachu</li>
+	  </ul>
+	</li>
+      </ul>
+</div>
+
+<section class="places">
+  <h1>Places</h1>
+  <article class="place_1">
+    <h5 class="place_name">Kuiper Belt</h5>
+    <div class="price_by_night">$45</div>
+    <div class="information">
+      <div class="max_guest">
+	<div class="icon"></div>
+	3 Guests
+	</div>
+      <div class="number_rooms">
+	<div class="icon_2"></div>
+	4 Rooms
+	</div>
+      <div class="number_bathrooms">
+	<div class="icon_3"></div>
+	2 Bathrooms
+	</div>
+      </div>
+
+    <div class="user">
+      <div><strong>Owner</strong>: Jimi Hendrix
+	<div>was an American rock guitarist, singer, and songwriter. Although his mainstream career spanned only four years, he is widely regarded as one of the most influential electric guitarists in the history of popular music, and one of the most celebrated musicians of the 20th century. The Rock and Roll Hall of Fame </div>
+	</div>
+      </div>
+    <div class="amenities">
+      <h2>Amenities</h2>
+      <ul>
+	<li>
+	  <p class="tv"></p>
+	  <p class="tv_text">TV</p>
+	</li>
+	<li>
+	  <p class="wifi"></p>
+          <p class="wifi_text">WiFi</p>
+	</li>
+	<li>
+	  <p class="pet"></p>
+          <p class="pet_text">Pet Friendly</p>
+	</li>
+      </ul>
+    </div>
+    <div class="reviews">
+      <h3 class="review_title">1 Reviews</h3>
+      <ul class="review_list">
+	<li>
+	  <h3>From Joe Shmow: March 4, 2017</h3>
+	  <p>In many situations, hash tables turn out to be more efficient than search trees or any other table lookup structure. For this reason, they are widely used in many kinds of computer software, particularly for associative If all keys are known ahead of time, a perfect hash function can be used to create a perfect hash table that has no collisions. If minimal perfect hashing is used, every location in the hash table can be used as well.
+</p>
+	</li>
+      </ul>
+    </div>
+    </article>
+  <article class="place_2">
+    <h5 class="place_name">Wonderland</h5>
+    <div class="price_by_night">$16</div>
+    <div class="information">
+      <div class="max_guest">
+	<div class="icon">
+	    </div>
+	4 Guests
+	</div>
+      <div class="number_rooms">
+	<div class="icon_2"></div>
+	4 Rooms
+	</div>
+      <div class="number_bathrooms">
+	<div class="icon_3"></div>
+	3 Bathrooms
+	</div>
+      </div>
+    <div class="user">
+      <div><strong>Owner</strong>: Godzilla
+	<div>sometimes called the Edgeworth–Kuiper belt, is a circumstellar disc in the Solar System beyond the (known) planets, extending from the orbit of Neptune (at 30 AU) to approximately 50 AU from the Sun.[2] It is similar to the asteroid belt, but is far larger—20 times as wide and 20 to 200 times as massive.[3][4] Like the asteroid bel</div>
+	</div>
+      </div>
+    <div class="amenities">
+      <h2>Amenities</h2>
+      <ul>
+        <li>
+          <p class="tv"></p>
+          <p class="tv_text">TV</p>
+        </li>
+        <li>
+          <p class="wifi"></p>
+          <p class="wifi_text">WiFi</p>
+        </li>
+      </ul>
+    </div>
+    <div class="reviews">
+      <h3 class="review_title">2 Reviews</h3>
+      <ul class="review_list">
+        <li>
+          <h3>From Picasso:  July 6, 2012</h3>
+          <p>Cryptographic hash functions are believed to provide good hashfunctions for any table size s, either by modulo reduction or by bit masking[citation needed]. They may also be appropriate if there is a risk of malicious users trying to sabotage a network service by submitting requests design</p>
+        </li>
+	<li>
+          <h3>From Super Mario:  January 30, 2017</h3>
+	    <p>Cryptographic hash functions are believed to provide good hashfunctions for any table size s, either by modulo reduction or by bit masking[citation needed]. They may also be appropriate if there is a risk of malicious users trying to sabotage a network service by submitting requests design</p>
+        </li>
+      </ul>
+    </div>
+    </article>
+  <article class="place_3">
+    <h5 class="place_name">Transylvania</h5>
+    <div class="price_by_night">$83</div>
+    <div class="information">
+      <div class="max_guest">
+	<div class="icon"></div>
+	2 Guests
+	</div>
+      <div class="number_rooms">
+	<div class="icon_2"></div>
+	1 Room
+	</div>
+      <div class="number_bathrooms">
+	<div class="icon_3"></div>
+	1 Bathrooms
+	</div>
+      </div>
+    <div class="user">
+      <div><strong>Owner</strong>: Dracula
+	<div>passed only by Eris in the scattered disc.[nb 1] Originally considered a planet, Pluto's status as part of the Kuiper belt caused it to be reclassified as a dwarf planet in 2006. It is compositionally similar to many other objects of the Kuiper belt, and its orbi</div>
+	</div>
+      </div>
+    <div class="amenities">
+      <h2>Amenities</h2>
+      <ul>
+        <li>
+          <p class="tv"></p>
+          <p class="tv_text">TV</p>
+        </li>
+        <li>
+          <p class="wifi"></p>
+          <p class="wifi_text">WiFi</p>
+        </li>
+      </ul>
+    </div>
+    <div class="reviews">
+      <h3 class="review_title">2 Reviews</h3>
+      <ul class="review_list">
+        <li>
+          <h3>From Joan of Arc:  May 5, 2016</h3>
+          <p>Cryptographic hash functions are believed to provide good hash functions for any table size s, either by modulo reduction or by bit masking[citation needed]. They may also be appropriate if there is a risk of malicious users trying to sabotage a network service by submitting requests design</p>
+        </li>
+	<li>
+	  <h3>From Abe Lincoln:  December 25, 2044</h3>
+          <p>Cryptographic hash functions are believed to provide good hashfunctions for any table size s, either by modulo reduction or by bit masking[citation needed]. They may also be appropriate if there is a risk of malicious users trying to sabotage a network service by submitting requests design</p>
+	</li>
+      </ul>
+    </div>
+    </article>
+  </section>
+
+
+</section>
+
+
+</div>
+<footer>
+  Holberton School
+  </footer>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,253 @@
+.places {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    position: relative;
+}
+
+
+.places h1 {
+    width: 100%;
+    font-size: 30px;
+}
+
+.places article {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.price_by_night {
+    color: #FF5A5F;
+    border: #FF5A5F 4px solid;
+    border-radius: 50%;
+    width: 60px;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+    vertical-align: center;
+    top: -47px;
+    right: -320px;
+    position: relative;
+    line-height: 60px;
+    margin-top: 10px;
+}
+
+.information {
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.max_guest {
+    width: 100px;
+    font-size: 17px;
+}
+
+.icon {
+    content:url(../images/icon_group.png);
+    align-items: center;
+    height: 50px;
+    margin: auto;
+}
+
+.icon_text {
+    margin-top: 0px;
+    justify-content: center;
+}
+
+.number_rooms {
+    width: 100px;
+    font-size: 17px;
+}
+
+.icon_2 {
+    content:url(../images/icon_bed.png);
+    align-items: center;
+    height: 50px;
+    margin: auto;
+}
+
+.number_bathrooms {
+    width: 100px;
+    font-size: 17px;
+}
+
+.number_bathrooms .icon_3 {
+    content:url(../images/icon_bath.png);
+    align-items: center;
+    height: 50px;
+    margin: auto;
+}
+
+.user {
+    font-size: 15px;
+    text-align: left;
+    padding-top: 38px;
+}
+
+article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    height: 130vh;
+    border: #FF5A5F 1px solid;
+    border-radius: 4px;
+    font-size: 30px;
+}
+
+.place_name {
+    margin: 0;
+}
+
+.place_1 .amenities {
+
+    height: 150px;
+    min-width: 100%;
+    margin: 35px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.place_1 .amenities h2 {
+    font-size: 16px;
+    height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+    min-width: 100%;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+.place_1 .amenities ul{
+    font-size: 20px;
+    min-width: 200px;
+    margin: 0px auto auto 0px;
+    padding-left: 5px;
+    text-align: left;
+    position: flex;
+    flex-wrap: wrap;
+}
+
+.place_2 .amenities h2 {
+    font-size: 16px;
+    height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+    min-width: 100%;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+.place_2 .amenities {
+
+    min-width: 100%;
+    margin: 35px auto;
+    display: flex;
+    flex-wrap: wrap;
+    height: 150px;
+}
+
+.place_2 .amenities ul{
+    font-size: 20px;
+    min-width: 200px;
+    margin: 0px auto auto 0px;
+    padding-left: 5px;
+    text-align: left;
+    position: flex;
+    flex-wrap: wrap;
+}
+
+.place_3 .amenities h2 {
+    font-size: 16px;
+    height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+    min-width: 100%;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+.place_3 .amenities {
+
+    height: 150px;
+    min-width: 100%;
+    margin: 35px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.place_3 .amenities ul{
+    font-size: 20px;
+    min-width: 200px;
+    margin: 0px auto auto 0px;
+    padding-left: 5px;
+    text-align: left;
+    position: flex;
+    flex-wrap: wrap;
+}
+
+article .amenities li {
+    height: 30px;
+}
+
+.tv:before {
+    content:url(../images/icon_tv.png);
+    text-align: left;
+    min-width: 30px;
+    min-height: 10px;
+}
+
+.tv_text {
+    display: flex;
+    position: relative;
+    bottom: 60px;
+    left: 80px;
+
+}
+
+.wifi:before {
+    content:url(../images/icon_wifi.png);
+    text-align: left;
+    min-height: 10px;
+    min-width: 30px;
+}
+
+.wifi_text {
+    display: flex;
+    position: relative;
+    bottom: 60px;
+    left: 80px;
+}
+
+
+.pet:before {
+    content:url(../images/icon_pets.png);
+    text-align: left;
+    min-width: 30px;
+    min-height: 10px;
+}
+
+.pet_text {
+    display: flex;
+    position: relative;
+    bottom: 60px;
+    left: 80px;
+}
+
+.reviews .review_title {
+    font-size: 16px;
+    margin: 60px auto 10px 0px;
+    min-height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+    min-width: 100%;
+    text-align: left;
+}
+
+.review_list {
+    font-size: 12px;
+    text-align: left;
+    padding-left:0px;
+}
